@@ -1,0 +1,28 @@
+<h1>Listing students</h1>
+<%= button_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Roll no</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @students.each do |student| %>
+  <tr>
+    <td><%= student.name %></td>
+    <td><%= student.description %></td>
+    <td><%= student.roll_no %></td>
+     <td><%= link_to 'Add a Course',new_student_course_path(student.id) %></td>
+    <td><%= link_to 'Show', student %></td>
+    <td><%= link_to 'Edit', edit_student_path(student) %></td>
+    <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student', new_student_path %>

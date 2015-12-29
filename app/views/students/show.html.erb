@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<%=image_tag @student.attachments.first.image.url(:medium) if @student.attachments.present? %>
+</p>
+<p>
+  <b>Name:</b>
+  <%= @student.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @student.description %>
+</p>
+
+<p>
+  <b>Roll no:</b>
+  <%= @student.roll_no %>
+</p>
+
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
+
